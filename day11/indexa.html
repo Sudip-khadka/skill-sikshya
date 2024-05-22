@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Bootstrap Example</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -25,7 +21,7 @@
             </div>
         </div>
     </nav>
-    <form class="d-flex w-25 mt-5 mx-auto" onsubmit="event.preventDefault(); LoadData();">
+    <form class="d-flex w-25 mt-5 mx-auto" onsubmit="Submit(event)">
         <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
@@ -33,7 +29,6 @@
         <div class="row">
         </div>
     </div>
-
     <footer class="text-muted py-5">
         <div class="container">
             <p class="float-end mb-1">
@@ -43,25 +38,21 @@
             <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.0/getting-started/introduction/">getting started guide</a>.</p>
         </div>
     </footer>
-
     <script>
-        function LoadData() {
-            let value = document.getElementById('search').value;
-            console.log("value is" ,value)
-            fetch('https://dummyjson.com/products/search?q=' + value)
+        function Loaddata() {
+            fetch('https://dummyjson.com/products')
                 .then(res => res.json())
                 .then((data) => {
                     let rowReference = document.querySelector('.row');
-                    rowReference.innerHTML = '';
-                    data?.products?.forEach((item) => {
+                    data.products.map((item) => {
                         rowReference.innerHTML += `
                             <div class="col-lg-3 col-md-4 col-sm-12 mb-5">
-                                <div class="card" style="width: 18rem; height: 400px;">
-                                    <img src="${item?.images[0]}" class="card-img-top w-full" alt="..." style="width: 100%; height: 200px !important">
+                                <div class="card" style="width: 18rem; height:400px;">
+                                    <img src="${item.images[0]}" class="card-img-top w-full" alt="..." style="width: 100%; height:200px !important">
                                     <div class="card-body">
-                                        <h5 class="card-title">${item?.brand}</h5>
-                                        <p class="card-text">${item?.description}.</p>
-                                        <a href="#" class="btn btn-primary">Add To Cart</a>
+                                        <h5 class="card-title">${item.brand}</h5>
+                                        <p class="card-text">${item.description}.</p>
+                                        <button onclick="cart()" class="btn btn-primary">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -72,8 +63,36 @@
                     console.log(error, 'error');
                 });
         }
+        Loaddata();
+
+        function Submit(event) {
+            event.preventDefault();
+            let value = document.getElementById('search').value;
+            fetch('https://dummyjson.com/products/search?q=' + value)
+                .then(res => res.json())
+                .then((data) => {
+                    let rowReference = document.querySelector('.row');
+                    rowReference.innerHTML = ''; // Clear previous search results
+                    data.products.map((item,index) => {
+                        rowReference.innerHTML += `
+                            <div class="col-lg-3 col-md-4 col-sm-12 mb-5">
+                                <div class="card" style="width: 18rem; height:400px;">
+                                    <img src="${item.images[0]}" class="card-img-top w-full" alt="..." style="width: 100%; height:200px !important">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${item.brand}</h5>
+                                        <p class="card-text">${item.description}.</p>
+                                        <button onclick='Cart()' id=${index} class="btn btn-primary">Add To Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                })
+                .catch((error) => {
+                    console.log(error, 'error');
+                });
+        }
+
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlRL7i8/c5LU1z4nzC+uv6A0wFL4Jp91I65jEn1gqhz4fFt6K2b6esG5av1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGcueS1fTifjDUrGO0aHhgpC8X2RW3b8qKST5YdT1zfsyp1LkB3m9gFwk1T" crossorigin="anonymous"></script>
 </body>
 </html>
