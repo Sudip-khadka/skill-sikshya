@@ -1,0 +1,98 @@
+*{
+    padding:0%;
+    margin:0%;
+    box-sizing: border-box;
+}
+body{
+    background-color: #F4EBE9 !important;
+}
+
+.nav{
+    height:100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #F4EBE9 !important;
+}
+.main>img,.brand>img{
+    height:60px;
+    width:270px;
+}
+.links>a{
+    text-decoration: none;
+    color:#CB8884;
+    font-size: larger;
+    font-weight: bold;
+    margin-right: 15px;
+}
+.profile{
+    display:flex;
+    gap:50px;
+}
+.user{
+    display:flex;
+    gap:25px;
+}
+.user>div{
+    background-color: #CB8884;
+    padding:5px 9px;
+    font-size: larger;
+    font-weight: bold;
+    color:#F4EBE9;
+    margin-top: -5px;
+}
+.absolute{
+    background-image: url(img/mobile.webp);
+    background-position: center;
+    background-size: cover;
+    height:60vh;
+    width:100%;
+    padding:1px 20px;
+}
+.absolute> input{
+    background-color: #F4EBE9;
+    text-align: center;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.bannerText{
+    margin:100px 50px;
+}
+.bannerText>button{
+    margin-top: 20px;
+    font-weight: bolder;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color:#CB8884;
+    padding:5px 10px;
+    border-radius: 20px;
+    border:2px solid #CB8884;
+    background-color: #F4EBE9;
+    width:auto;
+}
+.bannerText>p{
+    font-weight: bolder;
+    color:white;
+    font-size: 30px;
+    width:40%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.but{
+    text-decoration: none;
+    padding:10px 15px;
+    width: 18rem !important;
+    font-weight: bold;
+}
+.container{
+    background-color: #F4EBE9 !important;
+}
+#prevButton,#nextButton,.but:hover{
+    color:#CB8884 !important;
+    border:2px solid #CB8884 !important;
+    background-color: #F4EBE9;
+}
+#prevButton:hover,#nextButton:hover,.but{
+    color:#F4EBE9 !important;
+    border:2px solid #CB8884 !important;
+    background-color: #CB8884;
+}
