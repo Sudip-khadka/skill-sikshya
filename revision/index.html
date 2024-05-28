@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1.5rem;
+            text-align: left;
+            text-align: center;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #555555;
+        }
+        thead {
+            background-color: #f2f2f2;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body> 
+    
+    <table>
+        <thead>
+            <tr>
+                <td rowspan="2">Name</td>
+                <td rowspan="2">Age</td>
+                <td colspan="2">Country</td>
+            </tr>
+            <tr>
+                <td>Asia</td>
+                <td>Europe</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alice</td>
+                <td>12</td>
+                <td colspan="1">Nepal</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Lucifer</td>
+                <td>24</td>
+                <td></td>
+                <td style="color:red">France</td>
+            </tr>
+            <tr>
+                <td>Wan</td>
+                <td>28</td>
+                <td >China</td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <p>This information is not relivant to any data</p>
+        </tfoot>
+    </table>
+    
+
+    <h2 style="text-style=center;">Complex table</h2>
+    <table>
+        <thead>
+            <tr>
+                <td colspan="4">Table</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">Cool</td>
+                <td colspan="3">HI</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Very Ok</td>
+                <td >Bye</td>
+                <td>Ok</td>
+            </tr>
+            <tr>
+                <td colspan="2">Wan</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <p>This information is not relivant to any data</p>
+        </tfoot>
+    </table>
+<form style="margin:auto; width:50%; font-size:1.5rem; background-color:bisque; padding:20px;">
+    <h2>Form</h2>
+    <label for="name">Name: </label>
+    <input type="text" placeholder="Enter Your Name" id="name"><br>
+    <label for="number">Number: </label>
+    <input type="number" placeholder="Enter Your Number" id="number"><br>
+    <label for="email">Email: </label>
+    <input type="email" placeholder="Enter Your Email" id="email"><br>
+    <label for="password">Password: </label>
+    <input type="password" placeholder="Enter Your Password" id="password"><br>
+    <label>Enter Your Gender: </label>
+    <input type="radio" name="gender" value="Male" id="male">
+    <label for="male">Male</label>
+    <input type="radio" name="gender" value="Female" id="female">
+    <label for="female">Female</label>
+    <input type="radio" name="gender" value="Other" id="other">
+    <label for="other">Other</label><br>
+
+    <input type="submit">
+</form>
+
+<script>
+    //section for js 
+</script>
+</body>
+</html>

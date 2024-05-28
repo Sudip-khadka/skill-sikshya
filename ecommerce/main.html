@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Search by Brand</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
@@ -43,10 +43,22 @@
             <button>Explore Now</button>
         </div>
     </div>
-    <form class="d-flex w-25 mt-5 mx-auto" id="searchForm">
-        <input id="search" class="form-control me-2" type="search" placeholder="Search by Brand" aria-label="Search">
-        <!-- <button class="btn btn-outline-success" type="submit" >Search</button> -->
-    </form>
+    
+    <div class="container">
+        <div class="top">
+            <h1 style="color:#CB8884">Shop By Categories</h1>
+        <form class="d-flex " id="searchForm">
+           
+            <input id="search" class="form-control me-2" type="search" placeholder="Search by Brand Name" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#CB8884" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+              </svg><!-- <button class="btn btn-outline-success" type="submit" >Search</button> -->
+        </form>
+        </div>
+        <div class="column" id="categoryRow">
+
+        </div>
+    </div>
     <div class="container mt-5">
         <div class="row" id="productRow">
             <!-- Products will be displayed here -->
@@ -104,7 +116,50 @@
             console.log("page is fully loaded");
           });
 
+          let categoryRow= document.getElementById('categoryRow');
+          function fetchCategory() {
+            fetch('https://dummyjson.com/products/categories')
+                .then(res => res.json())
+                .then(data => {
+                    for (let i = 0; i < data.length; i++) {
+                        categoryRow.innerHTML += `<p class="category" id="${data[i]}" onclick="fetchEnteredCategory('${data[i]}')">${data[i]}</p>`;
+                    }
+                    console.log(data);
+                });
+        }
+        fetchCategory()
+        function fetchEnteredCategory(categoryid) {
+            event.preventDefault();
+            let rowReference = document.getElementById('productRow');
+            // Clear the previous products before appending new ones
+            rowReference.innerHTML = '';
+        
+            fetch('https://dummyjson.com/products/category/' + categoryid)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+        
+                    data.products.map(item => {
+                        rowReference.innerHTML += `
+                            <div class="col-lg-3 col-md-4 col-sm-12 mb-5">
+                                <div class="card" style="width: 18rem; height: 400px;">
+                                    <img src="${item.images[0]}" class="card-img-top w-full" alt="..." style="width: 100%; height: 200px !important">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${item.brand}</h5>
+                                        <p class="card-text">${item.description.slice(0, 60) + "..."}</p>
+                                        <a href="#" class="but">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                });
+            console.log("category is", categoryid);
+        }
+        
 
+
+          categoryRow.innerHTML = ``
         let start = 0;
         let end = 8;
         const pageSize = 8; // Number of items per page

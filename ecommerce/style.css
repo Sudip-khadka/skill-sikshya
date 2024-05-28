@@ -96,3 +96,62 @@ body{
     border:2px solid #CB8884 !important;
     background-color: #CB8884;
 }
+.top{
+    padding:20px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between !important;
+}
+form{
+    display: flex;
+    justify-content: right;
+    align-items: center !important;
+    width:30%;
+}
+form > input{
+    width:30%;
+}
+form>svg{
+    margin-left: -50px;
+}
+
+/*for search bar*/
+#search {
+    text-align: center; /* Center the text inside the input field */
+    border: 1px solid #CB8884; /* Custom border color */
+    padding: 10px; /* Add some padding for better appearance */
+    border-radius: 4px; /* Rounded corners for a smoother look */
+    transition: box-shadow 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+#search::placeholder {
+    color: #CB8884; /* Change the placeholder text color */
+    font-weight: bold;
+    text-align: center; /* Center the placeholder text */
+    opacity: 1; /* Ensure full opacity */
+}
+
+#search:hover {
+    box-shadow: 1px 1px 20px rgba(20, 19, 19, 0.5); /* Box shadow on hover */
+}
+#categoryRow {
+    display: flex;
+    overflow-x: auto; /* Use auto instead of scroll for a better user experience */
+    -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+#categoryRow::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+}
+
+#categoryRow > p {
+    text-transform: uppercase;
+    margin:0px 15px;
+    font-weight: bold;
+    padding:5px 10px;
+    color: #CB8884;
+    border:2px solid #CB8884;
+    border-radius: 20px;
+    flex-shrink: 0; /* Prevent the items from shrinking */
+}
