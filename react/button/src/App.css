@@ -1,0 +1,23 @@
+.text,.delete{
+  color:red;
+}
+.cancel{
+  background-color: red;
+}
+.submit{
+  color:green;
+}
+.icon{
+  color:black;
+  background-color: aliceblue;
+}
+.text{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  gap:30px;
+  margin: auto;
+}
+.search{
+  
+}
