@@ -29,12 +29,25 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+#root{
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin:auto;
+}
+.text{
 
+}
+.logo >img{
+  height:100px;
+  width:200px;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
