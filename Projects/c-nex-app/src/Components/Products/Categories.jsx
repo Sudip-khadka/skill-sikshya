@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Products.css';
 import FormDialog from './Popups/CategoryPopUP';
+import TableHeaders from '../../TableHeader/TableHeaders';
 
 function Categories() {
   // Define state to control the visibility of the FormDialog
@@ -26,9 +27,13 @@ function Categories() {
         <div className="product-categories-header-btn">
           <button className='btn' onClick={openDialog}>+ Create Categories</button>
         </div>
-      </div>
-      {/* Pass the state and handlers to the FormDialog component */}
       <FormDialog open={isDialogOpen} handleClose={closeDialog} />
+      {/* Pass the state and handlers to the FormDialog component */}
+      </div>
+      <div className="table">
+
+      <TableHeaders/>
+      </div>
     </div>
   );
 }

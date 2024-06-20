@@ -22,10 +22,12 @@ a{
 }
 .display-board{
     position: absolute;
-    top:18vh;
+    top:10vh;
     left:250px;
     width: calc(100% - 250px);
-    padding:0px 30px 25px;
+    height:90vh;
+    padding:30px;
+    background-color: #edf6fd;
 }
 h1{
     margin:0px !important;

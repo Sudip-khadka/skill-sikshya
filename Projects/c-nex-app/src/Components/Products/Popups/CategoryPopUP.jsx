@@ -17,7 +17,7 @@ export default function FormDialog({ open, handleClose }) {
           event.preventDefault();
           const formData = new FormData(event.currentTarget);
           const formJson = Object.fromEntries(formData.entries());
-          const email = formJson.email;
+          const email = formJson.category;
           console.log(email);
           handleClose();
         },

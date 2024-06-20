@@ -1,5 +1,6 @@
 .product-categories{
     display:flex;
+    flex-direction: column;
     width:100%;
 }
 .product-categories-header{
